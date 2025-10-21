@@ -6,7 +6,7 @@
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 15:48:54 by yosherau          #+#    #+#             */
-/*   Updated: 2025/10/14 17:06:41 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/10/21 15:28:40 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,6 +251,11 @@ void	init()
 	px = 300, py = 300, pdx = cos(pa) * 5, pdy= sin(pa) * 5;
 }
 
+void	resize(int w, int h)
+{
+	glutReshapeWindow(1024, 512);
+}
+
 int	main(int argc, char *argv[])
 {
 	glutInit(&argc, argv);
@@ -259,6 +264,7 @@ int	main(int argc, char *argv[])
 	glutCreateWindow("");
 	init();
 	glutDisplayFunc(display);
+	glutReshapeFunc(resize);
 	glutKeyboardFunc(buttons);
 	glutMainLoop();
 	return (0);
